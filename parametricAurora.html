@@ -1,3 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parametric Aurora</title>
+  <style type="text/css">
+    html, body {margin: 0; padding: 0; overflow: hidden}
+  </style>
+</head>
+<body id="ourWindow">
+  <div id="webgl" style="width:100%;"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r123/three.min.js"></script>
+  <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+  <script>
     var coefVec = new THREE.Vector3(13, 10, 14);
   var twn = [];
   var change = true;
@@ -135,3 +150,6 @@ function update(renderer, scene, camera, controls) { // Use this line instead wi
 
 // Initialize scene and begin animation loop
 var scene = init();  
+  </script>
+</body>
+</html>
