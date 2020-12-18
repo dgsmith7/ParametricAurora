@@ -1,3 +1,11 @@
+////////////////////////////////////////////
+//   "Aurora Smith-ealis"
+//   A Madman's experiments with THREE.js
+//   "Making the most of the pandemic"
+//   December 2020
+//   Original code by David Gail Smith
+////////////////////////////////////////////
+
     var coefVec = new THREE.Vector3(13, 10, 14);
   var twn = [];
   var change = true;
