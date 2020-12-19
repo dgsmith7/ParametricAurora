@@ -6,7 +6,7 @@
 //   Original code by David Gail Smith
 ////////////////////////////////////////////
 
-    var coefVec = new THREE.Vector3(Math.random(16), Math.random(16), Math.random(16));
+    var coefVec = new THREE.Vector3(7 ,3 ,12);
   var twn = [];
   var change = true;
   var twnLen = 20000;
