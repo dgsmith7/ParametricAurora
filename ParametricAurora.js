@@ -5,8 +5,11 @@
 //   December 2020
 //   Original code by David Gail Smith
 ////////////////////////////////////////////
-
-    var coefVec = new THREE.Vector3(7 ,3 ,12);
+var v1 = Math.floor(Math.random() * 15 + 1);
+var v2 = Math.floor(Math.random() * 15 + 1);
+var v3 = Math.floor(Math.random() * 15 + 1);
+console.log(v1, v2, v3);
+    var coefVec = new THREE.Vector3(v1, v2, v3);
   var twn = [];
   var change = true;
   var twnLen = 20000;
@@ -122,9 +125,25 @@ function getNode() {
   return mesh;
 }
 
+  function resizeRendererToDisplaySize(renderer) {
+    const canvas = renderer.domElement;
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+    const needResize = canvas.width !== width || canvas.height !== height;
+    if (needResize) {
+      renderer.setSize(width, height, false);
+    }
+    return needResize;
+  }
 // Animation loop below - recursive callback runs until window is closed
 function update(renderer, scene, camera, controls) { // Use this line instead with orbit controls
   //Redner the scene
+    if (resizeRendererToDisplaySize(renderer)) {
+      const canvas = renderer.domElement;
+      camera.aspect = canvas.clientWidth / canvas.clientHeight;
+      camera.updateProjectionMatrix();
+    }
+
   renderer.render(
     scene,
     camera
