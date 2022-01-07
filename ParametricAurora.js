@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-var coefVec = new THREE.Vector3(2, 6, 7);
-=======
 ////////////////////////////////////////////
 //   "Aurora Smith-ealis"
 //   A Madman's experiments with THREE.js
@@ -16,68 +13,21 @@ console.log(v1, v2, v3);
   var twn = [];
   var change = true;
   var twnLen = 20000;
->>>>>>> e1f6f9fbbe8dda2edd335855f4edb2d4e0caef0b
 
 function init() {
 // New scene object
   var scene = new THREE.Scene();
-<<<<<<< HEAD
-
-=======
->>>>>>> e1f6f9fbbe8dda2edd335855f4edb2d4e0caef0b
 // Build or import 3d objects and add them to scene
   var paraForm = getParaForm();
   paraForm.name = 'paraF';
   scene.add(paraForm);
-<<<<<<< HEAD
-
-// Set up lighting
-  var pointLight = getPointLight(0.5);
-  scene.add(pointLight);
-  var directionalLight = getDirectionalLight(1);
-  directionalLight.position.x = 13;
-  directionalLight.position.y = 10;
-  directionalLight.position.z = 10;
-  directionalLight.intensity = .5;
-  scene.add(directionalLight);
-
-// Set up GUI if desired
-  var gui = new dat.GUI();
-  gui.add(coefVec, 'x', 0, 16).name("Coefficient 1");
-  gui.add(coefVec, 'y', 0, 16).name("Coefficient 2");
-  gui.add(coefVec, 'z', 0, 16).name("Coefficient 3");
-
-// Add, position, and orient any cameras
-=======
 // Set up camera
->>>>>>> e1f6f9fbbe8dda2edd335855f4edb2d4e0caef0b
   var camera = new THREE.PerspectiveCamera(
     45,
     window.innerWidth/window.innerHeight,
     1,
     1000
   );
-<<<<<<< HEAD
-  camera.position.x = 10;
-  camera.position.y = 10;
-  camera.position.z = 10;
-  camera.lookAt(new THREE.Vector3(0, 0, 0));
-
-// Add renderer and set initial values
-  var renderer = new THREE.WebGLRenderer();
-  
-  renderer.shadowMap.enabled = true;
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setClearColor('rgb(120, 120, 120)');
-  document.getElementById('webgl').appendChild(renderer.domElement);
-
-// Orbit control if desired - be sure to uncomment lines for update call and update function
-  var controls = new THREE.OrbitControls(camera, renderer.domElement);
-
-  // Call the function to update the scene
-  update(renderer, scene, camera, controls);  // if using orbit controls, use this one:
-
-=======
   camera.position.x = 11;
   camera.position.y = 11;
   camera.position.z = 11;
@@ -91,7 +41,6 @@ function init() {
 // Orbit control if desired - be sure to uncomment lines for update call and update function
   var controls = new THREE.OrbitControls(camera, renderer.domElement);
   update(renderer, scene, camera, controls);  // if using orbit controls, use this one:
->>>>>>> e1f6f9fbbe8dda2edd335855f4edb2d4e0caef0b
   // Return the scene to the window
   return scene;
 }
@@ -110,18 +59,6 @@ function computeXYZ (c1, c2, c3, angle) {
 
 function do360Sweep(scn) {
   var grp = scn.getObjectByName('paraF');
-<<<<<<< HEAD
-//  console.log(grp);
-  var ang;
-  var position;
-  for (ang = 0; ang < 360; ang = ang + 1) {
-//    position = computeXYZ(coefVec.x, coefVec.y, coefVec.z, ang);
-    grp.children[ang].position.x = computeXYZ(coefVec.x, coefVec.y, coefVec.z, ang).x;
-    grp.children[ang].position.y = computeXYZ(coefVec.x, coefVec.y, coefVec.z, ang).y;
-    grp.children[ang].position.z = computeXYZ(coefVec.x, coefVec.y, coefVec.z, ang).z;
-    grp.children[ang].material.color.set(new THREE.Color().setHSL((ang/360), 1, .5));
-  }
-=======
   var ang;
   var posit;
   for (ang = 0; ang < 359; ang = ang + 1) {
@@ -158,36 +95,19 @@ change = false;
         .start();
     grp.children[359].material.color.set(new THREE.Color().setHSL((359/360)*(200/360)+(160/360), 1, .5));
     grp.children[359].material.emissive.set(new THREE.Color().setHSL((359/360)*(200/360)+(160/360), 1, .5));
->>>>>>> e1f6f9fbbe8dda2edd335855f4edb2d4e0caef0b
 }
 
 function getParaForm() {
   var group = new THREE.Group();
   var i = 0;
   for (i = 0; i < 360; i++) {
-<<<<<<< HEAD
-    var orb = getSphere(0.25);
-    orb.name = "orb" + i;
-=======
     var orb = getNode();
     orb.name = "orb" + i;
     twn[i] = new TWEEN.Tween(orb.position);
->>>>>>> e1f6f9fbbe8dda2edd335855f4edb2d4e0caef0b
     group.add(orb);
   }
   return group;
 }
-<<<<<<< HEAD
-///////////////////////////////////
-
-// Returns a sphere
-function getSphere(size) {
-  var geometry = new THREE.SphereGeometry(size, 24, 24);
-  var material = new THREE.MeshPhongMaterial({
-    color: 'rgb(0, 255, 0)',
-    metal: 0.8,
-    roughness: 0.625
-=======
 
 function getNode() {
   var geometry = new THREE.SphereGeometry(1, 25, 25 );
@@ -196,7 +116,6 @@ function getNode() {
     emissiveIntensity: .75,
     opacity: 0.05,
     transparent: true
->>>>>>> e1f6f9fbbe8dda2edd335855f4edb2d4e0caef0b
   });
   var mesh = new THREE.Mesh(
     geometry,
@@ -206,32 +125,6 @@ function getNode() {
   return mesh;
 }
 
-<<<<<<< HEAD
-// Returns a point light
-function getPointLight(intensity) {
-  var light = new THREE.PointLight(0xffffff, intensity);
-  light.castShadow = true;
-  return light;
-}
-
-// Returns a directional light
-function getDirectionalLight(intensity) {
-  var light = new THREE.DirectionalLight(0xffffff, intensity);
-  light.castShadow = true;
-
-  light.shadow.camera.left = -15;
-  light.shadow.camera.bottom = -15;
-  light.shadow.camera.right = 15;
-  light.shadow.camera.top = 15;
-
-  return light;
-}
-
-// Animation loop below - recursive callback runs until window is closed
-//function update(renderer, scene, camera) {
-function update(renderer, scene, camera, controls) { // Use this line instead with orbit controls
-  //Redner the scene
-=======
   function resizeRendererToDisplaySize(renderer) {
     const canvas = renderer.domElement;
     const width = canvas.clientWidth;
@@ -251,20 +144,11 @@ function update(renderer, scene, camera, controls) { // Use this line instead wi
       camera.updateProjectionMatrix();
     }
 
->>>>>>> e1f6f9fbbe8dda2edd335855f4edb2d4e0caef0b
   renderer.render(
     scene,
     camera
   );
   // Update scene here
-<<<<<<< HEAD
-  do360Sweep(scene);
-  scene.getObjectByName('paraF').rotation.x += 0.005;
-  scene.getObjectByName('paraF').rotation.y += 0.005;
-  // Callback to get new frame
-  requestAnimationFrame(function() {
-    update(renderer, scene, camera, controls);
-=======
   if (change == true) {do360Sweep(scene);}
   scene.getObjectByName('paraF').rotation.x += 0.0025;
   scene.getObjectByName('paraF').rotation.y += 0.002;
@@ -273,13 +157,8 @@ function update(renderer, scene, camera, controls) { // Use this line instead wi
   requestAnimationFrame(function() {
     update(renderer, scene, camera, controls);
     TWEEN.update();
->>>>>>> e1f6f9fbbe8dda2edd335855f4edb2d4e0caef0b
   })
 }
 
 // Initialize scene and begin animation loop
-<<<<<<< HEAD
 var scene = init();  
-=======
-var scene = init();  
->>>>>>> e1f6f9fbbe8dda2edd335855f4edb2d4e0caef0b
