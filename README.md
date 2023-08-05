@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-# ParametricAurora
-=======
-Hello gitPages
->>>>>>> e1f6f9fbbe8dda2edd335855f4edb2d4e0caef0b
+#ParametricAurora
+
+This ever-changing THREE-JS generatve art sketch is a simple visually-memerizing animation that morphs shapes using three parameters in an equation.
