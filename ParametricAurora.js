@@ -41,6 +41,7 @@ function init() {
   // Orbit control if desired - be sure to uncomment lines for update call and update function
   var controls = new THREE.OrbitControls(camera, renderer.domElement);
   update(renderer, scene, camera, controls); // if using orbit controls, use this one:
+  resizeRendererToDisplaySize(renderer);
   // Return the scene to the window
   return scene;
 }
